@@ -1,5 +1,6 @@
 /*jshint esversion:6, browser:true, node:true*/
 
+// need to change the date hashes below, which are specific to MOMENT
 export default class Controller {
   constructor(model, view) {
     this.model = model;
