@@ -1,6 +1,5 @@
 /*jshint esversion:6, browser:true, node:true*/
 
-// need to change the date hashes below, which are specific to MOMENT
 export default class Controller {
   constructor(model, view) {
     this.model = model;
@@ -12,14 +11,12 @@ export default class Controller {
   }
 
   setView(hash) {
-    var validURL = /^#\/[\d]{2}\/[\d]{4}$/.test(hash);
-      // note, this is for urls like '#/01/2017'
+    var validURL = /^#\/\S*$/.test(hash);
 
     if (validURL) {
-      let matches = hash.match(/^#\/([\d]{2})\/([\d]{4})$/),
-          month   = parseInt(matches[1], 10) - 1,
-          year    = parseInt(matches[2], 10);
-      this.model.setDate(month, year);
+      let matches = hash.match(/^#\/(\S*)$/),
+          text    = matches[1];
+      this.model.setArticle(text);
     }
 
     this.render();

@@ -1,7 +1,6 @@
 /*jshint esversion:6, browser:true, node:true*/
-/* Note, *calendar* is special to the tutorial, not the blog*/
 
-import { calendar } from './template';
+import { article } from './template';
 
 export default class View {
   constructor() {
@@ -9,6 +8,6 @@ export default class View {
   }
 
   render(data) {
-    this.el.innerHTML = calendar(data);
+    this.el.innerHTML = article(data);
   }
 }

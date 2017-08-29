@@ -1,8 +1,5 @@
 /*jshint esversion:6, browser:true, node:true */
 
-// All but *html* are dependent on moment
-import moment from 'moment';
-
 // general function
 const html = (literal, ...cooked) => {
   let result = '';
@@ -18,33 +15,18 @@ const html = (literal, ...cooked) => {
   return result;
 };
 
-// three variables that hold html'ed strings
-const controls = (data) => {
-  const curr = moment(data.iso),
-        next = moment(data.iso).add(1, 'month'),
-        prev = moment(data.iso).subtract(1, 'month');
+const article = (data) => {
+  const test = 'Consectetur repellat voluptate placeat veritatis nesciunt rem? Voluptatem vero quibusdam veniam consectetur molestias totam. Voluptatibus ex libero maiores labore ex pariatur magni commodi. Doloribus et corporis est culpa obcaecati recusandae.';
   return html`
-    <div id="controls">
-      <a class="item" href="#/${prev.format('MM')}/${prev.format('YYYY')}">Back one month</a>
-      <p class="item">${curr.format('MMMM')}, ${curr.format('YYYY')}</p>
-      <a class="item" href="#/${next.format('MM')}/${next.format('YYYY')}">Forward one month</a>
+    <div id="article">
+      <p class="data">Here is the hash text:</p>
+      <p class="thedata">${data}</p>
+      <p class="stuff">Here is the text:</p>
+      <p class="body">${test}</p>
+      <p class="endstuff">End of the text</p>
     </div>
   `;
 };
 
-const day = (data) => html`
-  <li data-iso="${data.iso}">
-    <p class="date">${ moment(data.iso).format('D')}</p>
-  </li>
-`;
-
-const calendar = (data) => html`
-  ${controls(data)}
-  <ul id="calendar" class="full-width weeks-${data.weekCount}">
-    ${data.days.map(data => day(data))}
-  </ul>
-`;
-
-export { calendar };
-export { controls };
+export { article };
 
