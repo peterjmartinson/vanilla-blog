@@ -8,7 +8,7 @@ describe('the test harness', function() {
 
 // hint, you can only test what's exported
 describe('template.js', function() {
-  it('contains article', function() {
+  it('contains an article', function() {
     expect(typeof article.innerHTML).to.equal('string');
   });
 });
