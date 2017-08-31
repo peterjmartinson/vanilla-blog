@@ -6,13 +6,20 @@ export default class Model {
     this.text = "DEFAULT TEXT";
   }
 
-  setArticle(text) {
-    this.text = text;
+  setArticle(key) {
+    this.text = toc[key];
   }
 
-  toJSON() {
-    const text = this.text;
-    return text;
+  getArticle() {
+    return this.text;
   }
 
 }
+
+// don't like that this needs to be a global...
+var toc = {
+  view1 : "This is from View 1",
+  view2 : "This IS from View 2",
+  view3 : "This were from View 3",
+  view4 : "This WERE from View 4"
+};

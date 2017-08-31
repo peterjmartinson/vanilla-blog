@@ -7,7 +7,7 @@ export default class Controller {
   }
 
   render() {
-    this.view.render(this.model.toJSON());
+    this.view.render(this.model.getArticle());
   }
 
   setView(hash) {
@@ -15,8 +15,8 @@ export default class Controller {
 
     if (validURL) {
       let matches = hash.match(/^#\/(\S*)$/),
-          text    = matches[1];
-      this.model.setArticle(text);
+          key    = matches[1];
+      this.model.setArticle(key);
     }
 
     this.render();

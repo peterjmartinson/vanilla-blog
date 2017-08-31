@@ -16,6 +16,7 @@ class App {
 const app = new App();
 
 const setView = () => {
+  // `document.location.hash` is the text given to the View
   app.controller.setView(document.location.hash);
 };
 
